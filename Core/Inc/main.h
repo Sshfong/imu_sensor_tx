@@ -42,6 +42,8 @@ extern "C" {
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
 
+extern uint8_t g_usart1_receivedata;
+
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

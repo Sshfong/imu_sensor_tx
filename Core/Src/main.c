@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -27,6 +28,9 @@
 #include "string.h"
 #include "oled.h"
 #include "stdio.h"
+
+#include "jy61p.h"
+
 
 /* USER CODE END Includes */
 
@@ -41,6 +45,8 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+
+uint8_t g_usart1_receivedata = 0;
 
 /* USER CODE END PM */
 
@@ -77,6 +83,22 @@ void OLED_ShowGyro(float angleX, float angleY, float angleZ)
 }
 
 
+int fputc(int ch,FILE *f)
+{
+	HAL_UART_Transmit (&huart2 ,(uint8_t *)&ch,1,HAL_MAX_DELAY );
+	return ch;
+}
+
+
+//串口接收回调函数
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if( huart == &huart1 )//判断中断源
+	{
+		jy61p_ReceiveData(g_usart1_receivedata);//调用数据包处理函数
+		HAL_UART_Receive_IT(&huart1,&g_usart1_receivedata,1);//继续进行中断接收
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -88,6 +110,9 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
+
+
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -109,18 +134,29 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_I2C1_Init();
+  MX_I2C2_Init();
+  MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-	HAL_Delay(20);
-	OLED_Init();
+
+//	OLED_Init();
+	
+	HAL_UART_Receive_IT(&huart1,&g_usart1_receivedata,1);
+
+//	printf("Testing printf...\r\n");
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
-	  OLED_ShowGyro(1, 282, 3);
+  {	
+	  HAL_Delay(100);
+	  printf("Pitch: %.1f °, Yaw: %.1f °, Roll: %.1f °\r\n",
+               Pitch,
+               Yaw,
+               Roll);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

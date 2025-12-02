@@ -3,6 +3,7 @@
 "imu_sensors_tx\main.o"
 "imu_sensors_tx\gpio.o"
 "imu_sensors_tx\i2c.o"
+"imu_sensors_tx\usart.o"
 "imu_sensors_tx\stm32f1xx_it.o"
 "imu_sensors_tx\stm32f1xx_hal_msp.o"
 "imu_sensors_tx\stm32f1xx_hal_gpio_ex.o"
@@ -19,10 +20,12 @@
 "imu_sensors_tx\stm32f1xx_hal_exti.o"
 "imu_sensors_tx\stm32f1xx_hal_tim.o"
 "imu_sensors_tx\stm32f1xx_hal_tim_ex.o"
+"imu_sensors_tx\stm32f1xx_hal_uart.o"
 "imu_sensors_tx\system_stm32f1xx.o"
 "imu_sensors_tx\font.o"
 "imu_sensors_tx\oled.o"
---strict --scatter "imu_sensors_tx\imu_sensors_tx.sct"
+"imu_sensors_tx\jy61p.o"
+--library_type=microlib --strict --scatter "imu_sensors_tx\imu_sensors_tx.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "imu_sensors_tx.map" -o imu_sensors_tx\imu_sensors_tx.axf

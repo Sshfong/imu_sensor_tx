@@ -29,6 +29,7 @@ imu_sensors_tx\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 imu_sensors_tx\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 imu_sensors_tx\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 imu_sensors_tx\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+imu_sensors_tx\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 imu_sensors_tx\oled.o: ../Core/Inc/i2c.h
 imu_sensors_tx\oled.o: D:\keil5\core\ARM\ARMCC\Bin\..\include\math.h
 imu_sensors_tx\oled.o: D:\keil5\core\ARM\ARMCC\Bin\..\include\stdlib.h

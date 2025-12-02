@@ -26,9 +26,12 @@ imu_sensors_tx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 imu_sensors_tx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 imu_sensors_tx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 imu_sensors_tx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+imu_sensors_tx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 imu_sensors_tx\main.o: ../Core/Inc/i2c.h
+imu_sensors_tx\main.o: ../Core/Inc/usart.h
 imu_sensors_tx\main.o: ../Core/Inc/gpio.h
 imu_sensors_tx\main.o: D:\keil5\core\ARM\ARMCC\Bin\..\include\string.h
-imu_sensors_tx\main.o: ..\hardware\oled.h
-imu_sensors_tx\main.o: ..\hardware\font.h
+imu_sensors_tx\main.o: ../hardware/oled.h
+imu_sensors_tx\main.o: ../hardware/font.h
 imu_sensors_tx\main.o: D:\keil5\core\ARM\ARMCC\Bin\..\include\stdio.h
+imu_sensors_tx\main.o: ../JY61P/jy61p.h
